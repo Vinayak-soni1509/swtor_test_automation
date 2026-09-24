@@ -10,7 +10,7 @@ class BasePage:
         self.wait = WebDriverWait(driver,Configreader.get_timeout())
 
     def click(self,locator):
-        self.wait.until(EC.visibility_of_element_located(locator)).click()
+        self.wait.until(EC.element_to_be_clickable(locator)).click()
 
     def send_keys(self,locator,value):
         self.wait.until(EC.visibility_of_element_located(locator)).send_keys(value)
@@ -23,3 +23,6 @@ class BasePage:
 
     def is_enabled(self,locator):
         return self.wait.until(EC.visibility_of_element_located(locator)).is_enabled()
+
+    def find_element(self,locator):
+        return self.wait.until(EC.visibility_of_element_located(locator))

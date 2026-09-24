@@ -16,3 +16,10 @@ def test_main_menu_displayed(setup):
     home =HomePage(setup)
     home.open_home_page(Configreader.get_base_url())
     assert home.main_menu_nav()
+
+def test_about_section_redirects_correctly(setup):
+    home =HomePage(setup)
+    home.open_home_page(Configreader.get_base_url())
+    home.accept_cookies()
+    assert home.about_navigation()
+
