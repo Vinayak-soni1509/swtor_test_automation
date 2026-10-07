@@ -15,6 +15,7 @@ def test_page_title(setup):
 def test_main_menu_displayed(setup):
     home =HomePage(setup)
     home.open_home_page(Configreader.get_base_url())
+    home.dismiss_cookies()
     assert home.main_menu_nav()
 
 def test_about_section_redirects_correctly(setup):

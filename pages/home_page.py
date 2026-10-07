@@ -12,6 +12,7 @@ class HomePage(BasePage):
     privacy_accept = (By.CSS_SELECTOR,"button[class = 'acceptAllButtonLower']")
     shadowpopup = (By.CSS_SELECTOR,"div.trustarc_newcm_container.truste_popframe")
     privacy_close = (By.ID,"gwt-debug-close_id")
+    cookie_dismiss  = (By.CSS_SELECTOR,".truste-banner-close")
 
 
     def open_home_page(self,url):
@@ -42,6 +43,9 @@ class HomePage(BasePage):
         accept_button.click()
         close_btn = self.wait.until(lambda driver: shadow.find_element(*self.privacy_close))
         close_btn.click()
+
+    def dismiss_cookies(self):
+        self.click(self.cookie_dismiss)
 
 
 
